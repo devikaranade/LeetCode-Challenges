@@ -8,20 +8,19 @@ class Solution:
         area = 8 max_area = 8
         l = 1, r = 8
         '''
+
         l = 0
         r = len(height)-1
         area = 0
-        max_area = 0
 
         while l<=r:
-            area = min(height[l], height[r])*(r-l)
-            max_area = max(area, max_area)
+            area = max(area, min(height[l], height[r])*(r-l))
+
             if height[l]<height[r]:
                 l+=1
             else:
-                r-=1
-        return max_area
-        
+                r-=1 
+        return area
 
 
         

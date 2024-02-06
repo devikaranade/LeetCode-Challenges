@@ -11,7 +11,4 @@ class Solution:
                 id_ = logs[i][0]
             elif diff==max_diff:
                 id_ = min(logs[i][0], id_)
-            
-        return id_
-        
-        
+        return id_        

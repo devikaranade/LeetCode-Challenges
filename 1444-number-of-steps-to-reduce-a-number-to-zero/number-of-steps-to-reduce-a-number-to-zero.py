@@ -1,15 +1,10 @@
 class Solution:
     def numberOfSteps(self, num: int) -> int:
-        count = 0
-        while num>0:
-            if num%2==0:
-                num = num//2
-                count+=1
-            if num%2!=0:
-                num=num-1
-                count+=1
-        return count
-        
-
-
-        
+        n = bin(num)[2:]
+        steps=0
+        for bit in n:
+            if bit=="1":
+                steps+=2
+            else:
+                steps+=1
+        return steps-1

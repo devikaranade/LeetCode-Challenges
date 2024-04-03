@@ -3,8 +3,10 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        cur = 0
+        k = 0
         for i in range(len(nums)):
             if nums[i]!=0:
-                nums[i], nums[cur] = nums[cur], nums[i]
-                cur+=1
+                nums[i],nums[k]=nums[k], nums[i]
+                k+=1
+
+                

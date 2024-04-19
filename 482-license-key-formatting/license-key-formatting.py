@@ -1,8 +1,5 @@
 class Solution:
     def licenseKeyFormatting(self, s: str, k: int) -> str:
-        # s = "5F3Z-2e-9-w", k = 4
-        # ans = ['W9E2',"-", "Z3F5"], count = 0
-
         n = len(s)
         count = 0
         ans = ['']

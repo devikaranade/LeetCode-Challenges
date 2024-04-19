@@ -1,9 +1,17 @@
 class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
+        if s==goal:
+            return True
+        s, goal = [*s], [*goal]
         for i in range(len(s)):
-            if s[i]==goal[0]:
-                if s[i:]+s[:i]==goal:
-                    return True
+            a = s[0]
+            s.pop(0)
+            s.append(a)
+            print(s)
+            if s==goal:
+                return True
         return False
+
+
         
         

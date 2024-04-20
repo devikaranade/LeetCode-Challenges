@@ -16,4 +16,13 @@ class Solution:
                 count+=1 
         return count
 
-        
+
+        # for c in range(1, len(s)):
+        #     left = s[:c]
+        #     right = s[c:]
+        #     # print(left, right)
+        #     left_counter = Counter(left)
+        #     right_counter = Counter(right)
+        #     if len(left_counter)==len(right_counter):
+        #         count+=1
+        # return count

@@ -8,7 +8,6 @@ class Solution:
     def delNodes(self, root: Optional[TreeNode], to_delete: List[int]) -> List[TreeNode]:
         q = collections.deque([(root, False)])
         res = []
-        # deleteSet=set(to_delete)
         while q:
             node,parent=q.popleft()
             if not parent and node.val not in to_delete:

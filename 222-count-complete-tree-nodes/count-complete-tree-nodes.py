@@ -19,22 +19,3 @@ class Solution:
         if hl==hr:
             return (1<<hl)-1
         return 1+self.countNodes(root.left)+self.countNodes(root.right)
-
-
-
-
-
-
-        # def dfs(root):
-        #     if not root:
-        #         return 0
-        #     nonlocal x
-        #     x+=1
-        #     dfs(root.left)
-        #     dfs(root.right)
-        # x=0
-        # dfs(root)
-        # return x
-
-
-

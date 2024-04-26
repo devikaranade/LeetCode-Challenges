@@ -1,17 +1,9 @@
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
-        h = {}
-        l = []
+        freq = {}
         for word in words:
-            if word not in h:
-                h[word]=1
-            else:
-                h[word]+=1
+            freq[word]=freq.get(word,0)+1
+        tuples = [(word,f) for word,f in freq.items()]
+        tuples.sort(key=lambda x: (-x[1], x[0]))
 
-        min_heap = []
-        for key,val in h.items():
-            heapq.heappush(min_heap,(-val, key))   
-        
-        for i in range(k):
-            l.append(heapq.heappop(min_heap)[-1])
-        return l
+        return [t[0] for t in tuples[:k]]

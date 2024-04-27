@@ -5,10 +5,14 @@ class Solution:
             if i>0:
                 stack.append(i) # stack = [5,10]
             else:
-                while stack and stack[-1]>0 and stack[-1]<abs(i):
-                    tmp = stack.pop()
-                if not stack or stack[-1]<0:
-                    stack.append(i)
-                elif stack[-1]==abs(i):
-                    stack.pop()
+                while stack and stack[-1]>0:
+                    if stack[-1]+i==0:
+                        stack.pop()
+                        break
+                    if stack[-1]+i<0:
+                        stack.pop()
+                        continue
+                    else:
+                        break
+                else:stack.append(i)
         return stack

@@ -7,7 +7,6 @@ class Solution:
         if len(s)==1:
             return 1
         map_s = Counter(s)
-        print(map_s)
         for c in map_s:
             if map_s[c]%2==0:
                 total+=map_s[c]

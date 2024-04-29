@@ -20,7 +20,4 @@ class Solution:
                 curr=prev+curr*prev_num
             else:
                 curr+=c
-        print(stack)
-        # while stack:
-        #     curr=stack.pop()+curr
         return curr

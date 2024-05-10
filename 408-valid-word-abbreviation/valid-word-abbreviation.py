@@ -9,8 +9,6 @@ class Solution:
                 if abbr[r].isdigit():
                     if abbr[r]=="0":
                         return False
-                    # if len(abbr)>len(word):
-                    #     return False
                     tmp=0
                     while r<len(abbr) and abbr[r].isdigit():
                         tmp=tmp*10 + int(abbr[r])

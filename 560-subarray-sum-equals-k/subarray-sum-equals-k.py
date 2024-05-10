@@ -7,6 +7,7 @@ class Solution:
             prefix_sum+=i
             if prefix_sum-k in d:
                 res+=d[prefix_sum-k]
+                print(res)
             if prefix_sum not in d:
                 d[prefix_sum]=1
             else:

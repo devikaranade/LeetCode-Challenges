@@ -4,5 +4,5 @@ class Solution:
         heap = []
         for w,f in count.items():
             heappush(heap,(-f, w))
-        heapify(heap)
+        # heapify(heap)
         return [heappop(heap)[1] for _ in range (k)]

@@ -7,7 +7,6 @@ class Solution:
             pairs.append((i,j))
             i+=1
             j-=1
-        print(pairs)
 
         while len(pairs)>1:
             tmp = []

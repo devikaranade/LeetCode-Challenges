@@ -3,28 +3,37 @@ class Solution:
         """
         Do not return anything, modify rooms in-place instead.
         """
-        gate , obstacle, empty_room = 0, -1, 2147483647
+        walls, gate, room = -1, 0, 2147483647
+        directions = [(-1,0),(0,-1),(0,1),(1,0)]
 
-        m = len(rooms)
-        n = len(rooms[0])
+        queue=deque()
+        
+        max_row = len(rooms)
+        max_col = len(rooms[0])
 
-        queue = collections.deque([])
-        empty_rooms = set()
-
-        for i in range(m):
-            for j in range(n):
-                if rooms[i][j]==gate:
-                    queue.append((i,j,0))
-                    empty_rooms.add((i,j))
-                if rooms[i][j]==empty_room:
-                    empty_rooms.add((i,j))
+        for r in range(max_row):
+            for c in range(max_col):
+                if rooms[r][c]==0:
+                    queue.append((r,c))
+        dist = 1
         while queue:
-            x,y, distance = queue.popleft()
-            if (x,y) in empty_rooms:
-                rooms[x][y]=distance
-                empty_rooms.remove((x,y))
+            n = len(queue)
+            for _ in range(n):
+                row,col = queue.popleft()
+                for nr,nc in directions:
+                    new_row = row+nr
+                    new_col = col+nc
+                    if new_row<0 or new_row>=max_row or new_col<0 or new_col>=max_col or rooms[new_row][new_col]!=room:
+                        continue
+                    rooms[new_row][new_col] = dist
+                    queue.append((new_row,new_col))
+            dist+=1
 
-                queue.append((x+1,y,distance+1))
-                queue.append((x-1,y,distance+1))
-                queue.append((x,y+1,distance+1))
-                queue.append((x,y-1,distance+1))
+        
+        
+
+                
+            
+            
+        
+        

@@ -17,9 +17,6 @@ class StringIterator:
         else:
             return " "
 
-
-        
-
     def hasNext(self) -> bool:
         return len(self.s)>1
         

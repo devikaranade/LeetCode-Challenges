@@ -1,20 +1,30 @@
 class MyHashMap:
 
     def __init__(self):
-        self.hashMap = [None for _ in range(1000001)]
+        self.map = []
         
+
     def put(self, key: int, value: int) -> None:
-        self.hashMap[key]=value
+        for i in self.map:
+            if i[0]==key:
+                i[1]=value
+                return
+        self.map.append([key,value])
+
 
     def get(self, key: int) -> int:
-        if self.hashMap[key]!= None:
-            return self.hashMap[key]
-        else:
-            return -1
+        for k in self.map:
+            if k[0]==key:
+                return k[1]
+        return -1
 
     def remove(self, key: int) -> None:
-        if self.hashMap[key]:
-            self.hashMap[key]=None
+        for k in self.map:
+            if k[0] == key:
+                self.map.remove(k)
+                return
+
+
         
 
 

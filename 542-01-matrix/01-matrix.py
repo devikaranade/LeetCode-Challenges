@@ -24,5 +24,3 @@ class Solution:
                     seen.add((nr,nc))
                     mat[nr][nc]=steps+1
         return mat
-                
-                

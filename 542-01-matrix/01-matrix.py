@@ -1,29 +1,28 @@
 class Solution:
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
+        seen = set()
+        
+        directions = [(-1,0),(0,-1),(0,1),(1,0)]
+        mat = [row[:] for row in mat]
         m = len(mat)
         n = len(mat[0])
-        
-        queue = collections.deque()
+        q = deque()
+
         for i in range(m):
             for j in range(n):
                 if mat[i][j]==0:
-                    queue.append((i,j))
-                else:
-                    mat[i][j]="#"
+                    q.append((i,j,0))
+                    seen.add((i,j))
 
-        while queue:
-            for _ in range(len(queue)):
-                i,j = queue.popleft()
-                for dx,dy in [(0,1),(1,0),(-1,0),(0,-1)]:
-                    dr = i+dx
-                    dc = j+dy
-                    if 0<=dr<m and 0<=dc<n and mat[dr][dc]=="#":
-                        mat[dr][dc]=mat[i][j]+1
-                        queue.append((dr,dc))
+        while q:
+            i,j,steps = q.popleft()
+            for r,c in directions:
+                nr = i+r
+                nc = j+c
+                if (nr,nc) not in seen and (0<=nr<m and 0<=nc<n):
+                    q.append((nr,nc,steps+1))
+                    seen.add((nr,nc))
+                    mat[nr][nc]=steps+1
         return mat
                 
                 
-                
-            
-
-        

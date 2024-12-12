@@ -15,5 +15,11 @@ class Solution:
                 q.append(node.left)
             if node.right:
                 q.append(node.right)
-        res.sort()
-        return res[k-1]
+        h = []
+        for i in res:
+            heapq.heappush(h,-i)
+            if len(h)>k:
+                heapq.heappop(h)
+        print(h)
+        return h[0]*(-1)
+            

@@ -1,17 +1,14 @@
 class Solution:
     def maxSubArrayLen(self, nums: List[int], k: int) -> int:
-        pSum = 0
+        d = {0:1}
+        total = 0
         max_length = 0
-        map_indices = {}
         for i, num in enumerate(nums):
-            pSum += num
-
-            if pSum==k:
+            total+=num
+            if total == k:
                 max_length = i + 1
-            
-            if pSum-k in map_indices:
-                max_length = max(max_length, i-map_indices[pSum-k])
-            
-            if pSum not in map_indices:
-                map_indices[pSum]=i
+            if total-k in d:
+                max_length = max(max_length, i-d[total-k])
+            if total not in d:
+                d[total]=i
         return max_length

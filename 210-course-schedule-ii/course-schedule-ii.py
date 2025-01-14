@@ -11,16 +11,16 @@ class Solution:
             G[des].append(src)
         
         def dfs(courses):
-            if visited[courses]==-1:
-                return True
             if visited[courses]==1:
+                return True
+            if visited[courses]==2:
                 return False
-            visited[courses]=-1
+            visited[courses]=1
 
             for neighbor in G[courses]:
                 if dfs(neighbor):
                     return True
-            visited[courses]=1
+            visited[courses]=2
             res.append(courses)
             return False   
 

@@ -15,4 +15,4 @@ class Solution:
                     k-=1
                 else:
                     j+=1
-        return s
+        return list(s)

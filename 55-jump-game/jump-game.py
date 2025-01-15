@@ -5,5 +5,5 @@ class Solution:
             return True
         for i in range(len(nums)-1, -1, -1):
             if i+nums[i]>=last:
-                last = i
+                last =  i 
         return last==0

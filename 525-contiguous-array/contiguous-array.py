@@ -1,12 +1,17 @@
 class Solution:
     def findMaxLength(self, nums: List[int]) -> int:
-        map_0 = defaultdict(list)
-        total = 0
+        dic = {}
+        dic[0]=-1
         ans = 0
-        map_0[0].append(-1) # {0: -1}
-        for i, num in enumerate(nums):
-            total+=1 * (1 if num else -1)
-            if total in map_0:
-                ans = max(ans, i-map_0[total][0])
-            map_0[total].append(i)
+        count = 0
+
+        for i in range(len(nums)):
+            if nums[i]==1:
+                count+=1
+            else:
+                count-=1
+            if count in dic:
+                ans = max(ans, i-dic[count])
+            else:
+                dic[count]=i
         return ans

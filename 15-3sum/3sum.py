@@ -9,7 +9,7 @@ class Solution:
                 self.tst(nums, i, res)
         return res
         
-    def tst(self, nums: List[int], i: int, res: List[List[int]]):
+    def tst(self, nums, i, res):
         left = i+1
         right = len(nums)-1
         while left<right:

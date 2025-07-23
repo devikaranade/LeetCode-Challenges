@@ -13,8 +13,7 @@ class Solution:
         while fast and fast.next:
             fast = fast.next.next
             slow = slow.next
-        # 1->2->3->4
-        # 4->5->6
+
         curr = slow
         prev = None
         while curr:

@@ -7,22 +7,18 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        stack = [root]
-        parent = {root:None}
-        while p not in parent or q not in parent:
-            node = stack.pop()
-            if node.left:
-                parent[node.left]=node
-                stack.append(node.left)
-            if node.right:
-                parent[node.right]=node
-                stack.append(node.right)
-        anc = set()
-        while p:
-            anc.add(p)
-            p=parent[p]
-        while q not in anc:
-            q=parent[q]
-        return q
-
+        ans = None
+        def rec(node):
+            nonlocal ans
+            if not node:
+                return False
+            left = rec(node.left)
+            right = rec(node.right)
+            mid = node==p or node==q
+            if mid+left+right>=2:
+                ans = node
+            return mid or left or right
+        
+        rec(root)
+        return ans
         

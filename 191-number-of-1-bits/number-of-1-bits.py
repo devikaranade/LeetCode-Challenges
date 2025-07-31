@@ -1,12 +1,19 @@
 class Solution:
     def hammingWeight(self, n: int) -> int:
-        s = ""
+        # bit manipulation
         count = 0
-        bin_n = bin(n)[2:]
-        bin_string = str(bin_n)
-        for c in bin_string:
-            if c=='1':
-                count+=1
+        while n:
+            count += n&1
+            n>>=1
         return count
 
+
+        # string 
+        # s = ""
+        # count = 0
+        # bin_n = bin(n)[2:]
         
+        # for c in bin_n:
+        #     if c=='1':
+        #         count+=1
+        # return count 

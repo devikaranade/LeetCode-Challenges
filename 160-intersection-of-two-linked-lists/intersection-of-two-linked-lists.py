@@ -11,6 +11,6 @@ class Solution:
         while curr1!=curr2:
             curr1 = headB if curr1 is None else curr1.next
             curr2 = headA if curr2 is None else curr2.next
-        return curr2
+        return curr1
 
         

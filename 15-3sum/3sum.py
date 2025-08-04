@@ -5,23 +5,26 @@ class Solution:
         for i in range(len(nums)):
             if nums[i]>0:
                 break
-            if i==0 or nums[i-1]!=nums[i]:
-                self.tst(nums, i, res)
+            if i>0 and nums[i]==nums[i-1]:
+                continue
+            self.twoSumII(nums, i, res)
         return res
-        
-    def tst(self, nums, i, res):
-        left = i+1
-        right = len(nums)-1
-        while left<right:
-            total = nums[i] + nums[left] + nums[right]
+    
+    def twoSumII(self,nums, i, res):
+        low = i+1
+        high = len(nums)-1
+        while low<high:
+            total = nums[i]+nums[low]+nums[high]
             if total<0:
-                left+=1
+                low+=1
             elif total>0:
-                right-=1
+                high-=1
             else:
-                res.append([nums[i],nums[left], nums[right]])
-                left+=1
-                right-=1
-                while left<right and nums[left]==nums[left-1]:
-                    left+=1
-
+                res.append([nums[i],nums[low],nums[high]])
+                while low<high and nums[low]==nums[low+1]:
+                    low+=1
+                while low<high and nums[high]==nums[high-1]:
+                    high-=1
+                low+=1
+                high-=1
+        return res

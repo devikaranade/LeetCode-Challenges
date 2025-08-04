@@ -12,4 +12,4 @@ class Solution:
                 if s[i]!=word[i]:
                     return s[:i]
             i+=1
-        return word[:min_length]
+        return word[:i]

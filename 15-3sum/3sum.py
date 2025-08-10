@@ -7,24 +7,24 @@ class Solution:
                 break
             if i>0 and nums[i]==nums[i-1]:
                 continue
-            self.twoSumII(nums, i, res)
+            self.twoSum2(nums, res, i)
         return res
-    
-    def twoSumII(self,nums, i, res):
-        low = i+1
-        high = len(nums)-1
-        while low<high:
-            total = nums[i]+nums[low]+nums[high]
+        
+    def twoSum2(self, nums, res, i):
+        left = i+1
+        right = len(nums)-1
+        while left<right:
+            total = nums[i]+nums[right]+nums[left]
             if total<0:
-                low+=1
+                left+=1
             elif total>0:
-                high-=1
+                right-=1
             else:
-                res.append([nums[i],nums[low],nums[high]])
-                while low<high and nums[low]==nums[low+1]:
-                    low+=1
-                while low<high and nums[high]==nums[high-1]:
-                    high-=1
-                low+=1
-                high-=1
+                res.append([nums[i], nums[left], nums[right]])
+                while left<right and nums[left]==nums[left+1]:
+                    left+=1
+                while left<right and nums[right]==nums[right-1]:
+                    right-=1
+                left+=1
+                right-=1
         return res

@@ -10,7 +10,6 @@ class Solution:
             return 0
         q = deque([(root,1)])
         min_level = float('inf')
-        level = 0
         while q:
             node,val = q.popleft()
             if not node.left and not node.right:

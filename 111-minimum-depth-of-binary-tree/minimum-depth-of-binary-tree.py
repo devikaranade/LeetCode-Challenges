@@ -9,15 +9,13 @@ class Solution:
         if not root:
             return 0
         q = deque([(root,1)])
-        
+        min_level = float('inf')
+        level = 0
         while q:
-            node, val = q.popleft()
-
+            node,val = q.popleft()
             if not node.left and not node.right:
                 return val
             if node.left:
-                q.append((node.left, val+1))
+                q.append((node.left,val+1))
             if node.right:
                 q.append((node.right, val+1))
-
-        

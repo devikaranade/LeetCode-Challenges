@@ -13,5 +13,5 @@ class Solution:
             if not root.left and not root.right:
                 return total==targetSum
             return rec(root.left, total) or rec(root.right, total)
-            
+
         return rec(root, 0)

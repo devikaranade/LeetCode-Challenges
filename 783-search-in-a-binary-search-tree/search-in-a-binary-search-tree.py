@@ -6,16 +6,12 @@
 #         self.right = right
 class Solution:
     def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
-        def rec(root):
-            if not root:
-                return None
-            if root.val==val:
-                return root
+        curr = root
+        while curr:
+            if curr.val==val:
+                return curr
+            if curr.val<val:
+                curr = curr.right
             else:
-                if root.val<val:
-                    return rec(root.right)
-                else:
-                    return rec(root.left)
-        
-        v = rec(root)
-        return v if v else None
+                curr = curr.left
+        return None

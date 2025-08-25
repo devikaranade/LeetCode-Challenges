@@ -11,13 +11,10 @@ class Solution:
             return root
         p_val = p.val
         q_val = q.val
-        
         while root:
-            parent = root.val
-            if p_val>parent and q_val>parent:
-                root = root.right
-            elif p_val<parent and q_val<parent:
+            if p_val>root.val and q_val>root.val:
+                root=root.right
+            elif p_val<root.val and q_val<root.val:
                 root=root.left
             else:
                 return root
-            

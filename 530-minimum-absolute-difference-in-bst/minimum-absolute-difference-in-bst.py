@@ -6,22 +6,15 @@
 #         self.right = right
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
-        res = []
-        q = deque([root])
+        l = []
+        def rec(root):
+            if not root:
+                return
+            rec(root.left)
+            l.append(root.val)
+            rec(root.right)
+        rec(root)
         min_diff = float('inf')
-        while q:
-            node = q.popleft()
-            if node:
-                res.append(node.val)
-                q.append(node.left)
-                q.append(node.right)
-        for i in range(len(res)):
-            for j in range(i+1,len(res)):
-                diff = abs(res[i]-res[j])
-                if diff<min_diff:
-                    min_diff = diff
+        for i in range(1,len(l)):
+            min_diff = min(min_diff, l[i]-l[i-1])
         return min_diff
-
-

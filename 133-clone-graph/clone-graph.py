@@ -13,13 +13,10 @@ class Solution:
         def dfs(node):
             if node in seen:
                 return seen[node]
-            clone = Node(node.val)
-            seen[node] = clone
+            nn = Node(node.val)
+            seen[node]=nn
 
             for child in node.neighbors:
-                clone.neighbors.append(dfs(child))
-            return clone
+                nn.neighbors.append(dfs(child))
+            return nn
         return dfs(node) if node else None
-
-
-        

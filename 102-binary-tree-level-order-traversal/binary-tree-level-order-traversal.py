@@ -11,13 +11,17 @@ class Solution:
         q = deque([root])
         res = []
         while q:
-            tmp = []
+            l = []
             for _ in range(len(q)):
                 node = q.popleft()
-                tmp.append(node.val)
+                l.append(node.val)
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            res.append(tmp)
+            res.append(l)
         return res
+
+
+
+

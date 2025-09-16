@@ -1,17 +1,17 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        l = 0
+        counter_char = {}
+        start = 0
         max_freq = 0
-        counter = defaultdict(int)
-        max_res = 0
+        longest_substring_len = 0
 
-        for r in range(len(s)):
-            counter[s[r]]+=1
-            max_freq = max(max_freq, counter[s[r]])
+        for end in range(len(s)):
+            counter_char[s[end]]=counter_char.get(s[end], 0)+1
+            max_freq = max(max_freq, counter_char[s[end]])
 
-            while (r-l+1)-max_freq>k:
-                counter[s[l]]-=1
-                l+=1
-            max_res = max(max_res, r-l+1)
-        
-        return max_res
+            is_valid = (end+1-start-max_freq <= k)
+            if not is_valid:
+                counter_char[s[start]]-=1
+                start+=1
+            longest_substring_len = end+1-start
+        return longest_substring_len

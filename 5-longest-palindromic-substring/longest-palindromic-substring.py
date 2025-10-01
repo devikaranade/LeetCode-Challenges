@@ -9,7 +9,6 @@ class Solution:
                 left+=1
                 right-=1
             return True
-
         
         for length in range(len(s), 0, -1):
             for start in range(len(s)-length+1):

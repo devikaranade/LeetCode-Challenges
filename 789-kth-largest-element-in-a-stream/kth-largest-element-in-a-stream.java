@@ -8,7 +8,6 @@ class KthLargest {
         for (int num : nums) {
             add(num);
         }
-        System.out.println(heap);
     }
     
     public int add(int val) {
